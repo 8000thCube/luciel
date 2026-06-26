@@ -129,7 +129,7 @@ impl<B:Backend> Dense<B>{
 	pub fn get_output_features(&self)->usize{self.inner.weight.dims()[1]}
 	/// creates a new dense layer
 	pub fn new(inputencoding:u64,inputdimension:usize,outputencoding:u64,outputdimension:usize)->Self{
-		Self{inner:LinearConfig::new(inputdimension,outputdimension).init(&Default::default()),inputencoding,outputencoding}
+		Self{inner:LinearConfig::new(inputdimension,outputdimension).with_bias(false).init(&Default::default()),inputencoding,outputencoding}
 	}
 }
 impl<B:Backend> Embed<B>{
